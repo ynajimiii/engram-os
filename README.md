@@ -381,8 +381,13 @@ Other contribution areas: test coverage for the orchestration layer (currently 0
 
 ## License
 
-Apache 2.0 — see [LICENSE](LICENSE).
+Business Source License 1.1 (BSL 1.1)
 
+Personal & Research Use: Completely free.
+
+Commercial Production: Requires a paid license.
+
+Change Date: On January 1, 2029, this project automatically converts to the Apache 2.0 license.
 ---
 
 <div align="center">

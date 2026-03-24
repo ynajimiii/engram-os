@@ -1,6 +1,8 @@
-# ENGRAM OS
+<div align="center"> ENGRAM OS </div>
 
+![Monolith_with_three_202603240627](https://github.com/user-attachments/assets/e0b73888-303a-44de-9125-022614fd8c7a)
 <div align="center">
+
 
 **A local AI operating system that gets smarter at every domain the longer you use it.**
 

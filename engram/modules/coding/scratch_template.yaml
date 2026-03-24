@@ -1,0 +1,96 @@
+# Coding Module Scratch Template
+# Phase 01: Scratch Memory
+
+template_version: "0.1.0"
+module: coding
+
+# Scratch space structure for coding tasks
+structure:
+  # Current working file context
+  current_file:
+    type: string
+    description: "Path to the currently active file"
+    default: ""
+
+  # Open files in editor
+  open_files:
+    type: list
+    description: "List of currently open file paths"
+    default: []
+
+  # Code context for the current task
+  code_context:
+    type: object
+    properties:
+      language: string
+      framework: string
+      dependencies: list
+      entry_point: string
+
+  # Current task state
+  task:
+    type: object
+    properties:
+      id: string
+      description: string
+      status: string  # pending, in_progress, completed, blocked
+      files_involved: list
+      changes_made: list
+
+  # Generated code snippets
+  snippets:
+    type: list
+    description: "Code snippets generated during this session"
+    items:
+      type: object
+      properties:
+        name: string
+        language: string
+        code: string
+        purpose: string
+
+  # Test results
+  test_results:
+    type: object
+    properties:
+      last_run: string
+      passed: integer
+      failed: integer
+      errors: list
+
+  # Lint/analysis results
+  analysis:
+    type: object
+    properties:
+      issues: list
+      warnings: list
+      suggestions: list
+
+  # Execution history
+  execution_history:
+    type: list
+    items:
+      type: object
+      properties:
+        timestamp: string
+        command: string
+        output: string
+        exit_code: integer
+
+# Default values
+defaults:
+  task:
+    status: pending
+  code_context:
+    language: python
+  test_results:
+    passed: 0
+    failed: 0
+
+# Validation rules
+validation:
+  required_fields:
+    - current_file
+    - task
+  max_snippets: 10
+  max_history: 50

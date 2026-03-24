@@ -1,0 +1,46 @@
+# Module Registry for Engram OS
+# Phase 05: Modules
+
+modules:
+  coding:
+    name: "Coding Module"
+    version: "0.1.0"
+    description: "Code generation and analysis capabilities"
+    enabled: true
+    path: "modules/coding"
+    system_prompt: "agent_system_prompt.md"
+    scratch_template: "scratch_template.yaml"
+    capabilities:
+      - code_generation
+      - code_review
+      - debugging
+      - refactoring
+    tools:
+      - file_read
+      - file_write
+      - code_execute
+      - lint_check
+
+  marketing:
+    name: "Marketing Module"
+    version: "0.1.0"
+    description: "Content creation and marketing assistance"
+    enabled: true
+    path: "modules/marketing"
+    system_prompt: "agent_system_prompt.md"
+    scratch_template: "scratch_template.yaml"
+    capabilities:
+      - content_creation
+      - copywriting
+      - seo_optimization
+      - social_media
+    tools:
+      - template_generate
+      - analytics_read
+      - campaign_track
+
+settings:
+  auto_load: true
+  hot_reload: false
+  module_timeout: 300
+  shared_state: true

@@ -1,0 +1,104 @@
+# ENGRAM OS - MCP Servers Configuration
+#
+# Add/remove servers here — no code changes needed.
+# Set enabled: false to disable a server.
+#
+# Available MCP Servers:
+#   - filesystem: Read/write files, list directories
+#   - shell: Execute shell commands (uses mock implementation)
+#   - brave_search: Web search (requires API key)
+#   - git: Git operations (commit, diff, status)
+#
+# Usage:
+#   1. Install Node.js and npm
+#   2. Servers auto-install via npx on first run
+#   3. Or pre-install: npm install -g @modelcontextprotocol/server-filesystem
+
+servers:
+  # Core - Filesystem access
+  # Allows agent to read/write project files
+  filesystem:
+    command: "C:\\Program Files\\nodejs\\npx.cmd"
+    args:
+      - "@modelcontextprotocol/server-filesystem"
+      - "C:\\Users\\PC\\Desktop\\Engram-os"  # Project root directory
+    enabled: true
+    description: "Filesystem operations - read, write, list, create directories"
+
+  # Core - Shell execution
+  # Note: Official MCP shell server not available, using mock implementation
+  # Shell commands are executed via subprocess with safety timeout
+  shell:
+    command: "C:\\Program Files\\nodejs\\npx.cmd"
+    args:
+      - "@modelcontextprotocol/server-everything"
+    enabled: true
+    description: "Shell command execution (mock implementation)"
+    use_mock: true
+
+  # Useful - Web search
+  # Requires Brave Search API key: https://brave.com/search/api/
+  brave_search:
+    command: "C:\\Program Files\\nodejs\\npx.cmd"
+    args:
+      - "@modelcontextprotocol/server-brave-search"
+    enabled: false
+    description: "Web search via Brave Search API"
+    env:
+      BRAVE_API_KEY: ""  # Set your API key here
+
+  # Useful - Git operations
+  # Allows agent to commit changes with narrative messages
+  git:
+    command: "C:\\Program Files\\nodejs\\npx.cmd"
+    args:
+      - "@modelcontextprotocol/server-git"
+      - "--repository"
+      - "C:\\Users\\PC\\Desktop\\Engram-os"  # Current directory
+    enabled: false
+    description: "Git operations - commit, diff, status, log"
+
+  # Optional - Database access
+  # Uncomment and configure for database operations
+  # database:
+  #   command: "C:\\Program Files\\nodejs\\npx.cmd"
+  #   args:
+  #     - "@modelcontextprotocol/server-postgres"
+  #     - "postgresql://localhost:5432/mydb"
+  #   enabled: false
+  #   description: "PostgreSQL database operations"
+
+  # Optional - Browser automation
+  # Uncomment for browser-based tasks
+  # browser:
+  #   command: "C:\\Program Files\\nodejs\\npx.cmd"
+  #   args:
+  #     - "@modelcontextprotocol/server-puppeteer"
+  #   enabled: false
+  #   description: "Browser automation via Puppeteer"
+
+# Global settings
+settings:
+  # Timeout for tool calls (seconds)
+  # Increased to 300s for complex operations (refactoring, code generation)
+  tool_timeout: 300
+
+  # Maximum tool calls per task
+  max_tool_calls_per_task: 10
+
+  # Log all tool calls
+  log_tool_calls: true
+
+  # Use mock implementations if servers fail to connect
+  use_mock_fallback: true
+
+# Tool aliases (optional)
+# Map friendly names to actual tool names
+aliases:
+  read: "read_file"
+  write: "write_file"
+  ls: "list_directory"
+  mkdir: "create_directory"
+  exec: "run_command"
+  search: "search"
+  commit: "git_commit"

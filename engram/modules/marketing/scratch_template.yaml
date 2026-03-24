@@ -1,0 +1,112 @@
+# Marketing Module Scratch Template
+# Phase 01: Scratch Memory
+
+template_version: "0.1.0"
+module: marketing
+
+# Scratch space structure for marketing tasks
+structure:
+  # Current campaign context
+  campaign:
+    type: object
+    properties:
+      name: string
+      type: string  # email, social, content, paid, etc.
+      status: string
+      target_audience: string
+      goals: list
+      budget: number
+      start_date: string
+      end_date: string
+
+  # Content being worked on
+  content:
+    type: object
+    properties:
+      type: string  # blog, social_post, email, ad_copy, etc.
+      title: string
+      body: string
+      tone: string
+      keywords: list
+      cta: string
+      revisions: integer
+
+  # Target audience profile
+  audience:
+    type: object
+    properties:
+      demographics: object
+      interests: list
+      pain_points: list
+      channels: list
+
+  # Brand guidelines
+  brand:
+    type: object
+    properties:
+      voice: string
+      tone: string
+      key_messages: list
+      visual_style: string
+      do_not_say: list
+
+  # Performance metrics
+  metrics:
+    type: object
+    properties:
+      impressions: integer
+      clicks: integer
+      conversions: integer
+      ctr: number
+      cpc: number
+      roas: number
+
+  # Content calendar
+  calendar:
+    type: list
+    items:
+      type: object
+      properties:
+        date: string
+        channel: string
+        content_type: string
+        status: string
+        notes: string
+
+  # Competitor analysis
+  competitors:
+    type: list
+    items:
+      type: object
+      properties:
+        name: string
+        strengths: list
+        weaknesses: list
+        messaging: string
+
+  # Generated content versions
+  versions:
+    type: list
+    items:
+      type: object
+      properties:
+        version: string
+        content: string
+        created_at: string
+        feedback: string
+
+# Default values
+defaults:
+  campaign:
+    status: planning
+  content:
+    revisions: 0
+  brand:
+    tone: professional
+
+# Validation rules
+validation:
+  required_fields:
+    - campaign
+  max_versions: 5
+  calendar_lookahead_days: 30

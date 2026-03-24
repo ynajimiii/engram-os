@@ -1,6 +1,8 @@
-<div align="center"> ENGRAM OS </div>
+<div align="center">
+  <h1>ENGRAM OS</h1>
+  <img src="https://github.com/user-attachments/assets/e0b73888-303a-44de-9125-022614fd8c7a" width="25%" alt="Monolith_with_three">
+</div>
 
-![Monolith_with_three_202603240627](https://github.com/user-attachments/assets/e0b73888-303a-44de-9125-022614fd8c7a)
 <div align="center">
 
 
